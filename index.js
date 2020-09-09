@@ -64,9 +64,9 @@ For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainb
 
 function addFlavor(arr, newFlavor) {
   arr.unshift(newFlavor);
-  console.log(arr);
+  return arr;
 }
-addFlavor(originalFlavors, 'Rainbow Sherbert');
+console.log(addFlavor(originalFlavors, 'Rainbow Sherbert'));
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
 
@@ -119,9 +119,9 @@ function removeFlavorByName(arr, flavorName) {
       arr.splice(i, 1);
     }
   }
+  return arr;
 }
-removeFlavorByName(originalFlavors, 'Vanilla');
-console.log(originalFlavors);
+console.log(removeFlavorByName(originalFlavors, 'Vanilla'));
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
@@ -135,13 +135,12 @@ function copy(source, copy) {
   for (let i = 0; i < source.length; i++) {
     copy.push(source[i]);
   }
+  return copy;
 }
 
 const origionalCopy = [];
 
-copy(originalFlavors, origionalCopy);
-
-console.log(origionalCopy);
+console.log(copy(originalFlavors, origionalCopy));
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
 
