@@ -136,6 +136,7 @@ function copy(source, copy) {
     copy.push(source[i]);
   }
 }
+
 const origionalCopy = [];
 
 copy(originalFlavors, origionalCopy);
@@ -182,8 +183,8 @@ and should return the average number of words per item in the array.
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
 function getAverageWordLength(arr) {
-  let wordCount = 0;
-  let tempArr = [];
+  let wordCount = 0; // total words in the array
+  let tempArr = []; // temp array to hold an array of words from each index in the origional array.
   for (let i = 0; i < arr.length; i++) {
     tempArr = [...arr[i].split(' ')];
     wordCount += tempArr.length;
@@ -278,6 +279,22 @@ var regionalFlavors = [
   'Chocolate Chocolate Chip Cheesecake',
   "Caramel 'n' Cookies",
 ];
-function getRandomFlavors(/*code here*/) {
-  /*code here*/
+function getRandomFlavors(arr1, arr2, arr3, arr4) {
+  let allFlavors = arr1.concat(arr2, arr3, arr4); // adds every flavor into one array
+  let new31 = [];
+  for (let i = 0; i < 31; i++) {
+    Array.prototype.push.apply(
+      new31,
+      allFlavors.splice(Math.floor(Math.random() * getRandomFlavors.length), 1) // splices out a random flavor from the array of all flavors
+    );
+  }
+  return new31;
 }
+console.log(
+  getRandomFlavors(
+    originalFlavors,
+    newFlavors,
+    seasonalFlavors,
+    regionalFlavors
+  )
+);
